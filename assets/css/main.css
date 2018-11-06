@@ -1,0 +1,364 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --yellow: #ffde03;
+  --blue: #0336ff;
+  --quasi-black: #333;
+  --art-unit-sz: 50px;
+  --art-orange: #f2422a;
+  --art-blue: #2196f3;
+  --art-brown: #442c2e;
+  --art-green: #09aa3f;
+  --art-yellow: #e6d60d;
+  --art-purple: #330065;
+  --art-pink: #ff0066;
+  --art-teal: #008080;
+  --art-red: #f00;
+  --art-turquoise: #40e0d0;
+  --art-purple-light: #663398;
+  --primary-fg: black;
+  --primary-bg: #fedbd0;
+  --secondary-fg: white;
+  --secondary-bg: #442c2e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 4rem auto 10rem;
+  color: var(--primary-fg);
+  background: var(--primary-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/*************************************/
+header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 4rem auto 4rem;
+  grid-template-rows: 4rem;
+}
+
+.main-header {
+  color: var(--primary-fg);
+  background: var(--primary-bg);
+  z-index: 2;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, .2);
+}
+
+.main-header div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.main-header-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/*************************************/
+/*************************************/
+/************************************/
+.grid-container {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  grid-template-rows: 1fr;
+}
+
+.debug {
+  /*border: 1px dashed #000000dd;*/
+  /*background: #ffffff55;*/
+}
+
+.grid-container .child {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+.white-frame {
+  line-height: 1.;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2),
+    0 1px 1px 0 rgba(0, 0, 0, .14),
+    0 2px 1px -1px rgba(0, 0, 0, .12);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  -webkit-transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
+  transition: 0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
+  position: relative;
+  padding-bottom: 0;
+  background: white;
+  padding: 16px;
+}
+
+/*************************************/
+.top-nav {
+  color: var(--secondary-fg);
+  background: var(--secondary-bg);
+  min-height: 35vh;
+  max-height: 40vh;
+  font-size: 3rem
+}
+
+.primary {
+  padding: 1rem;
+  color: var(--primary-fg);
+  /* background: var(--primary-bg); */
+}
+
+.secondary {
+  padding: 1rem;
+  color: var(--secondary-fg);
+  background: var(--secondary-bg);
+}
+
+/*************************************/
+footer {
+  color: var(--secondary-fg);
+  background: var(--secondary-bg);
+  z-index: 2;
+  align-items: end;
+  display: grid;
+  grid-template-columns: 4rem 1fr 4rem;
+  grid-template-rows: 20px 1fr 20px;
+}
+
+.footer-content {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  text-align: center;
+}
+
+/*****************************/
+@media (min-width: 0) {
+  .grid-container-wrapper {
+    grid-template-columns: 0 auto 0;
+  }
+}
+
+@media (min-width: 425px) {
+  .grid-container-wrapper {
+    grid-template-columns: 1fr 400px 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  header {
+    grid-template-columns: auto 540px auto;
+  }
+
+  .grid-container-wrapper {
+    grid-template-columns: 1fr 540px 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    grid-template-columns: auto 720px auto;
+  }
+
+  .grid-container-wrapper {
+    grid-template-columns: 1fr 720px 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  header {
+    grid-template-columns: auto 960px auto;
+  }
+
+  .grid-container-wrapper {
+    grid-template-columns: 1fr 960px 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    grid-template-columns: auto 1140px auto;
+  }
+
+  .grid-container-wrapper {
+    grid-template-columns: 1fr 1140px 1fr;
+  }
+}
+
+/***********************/
+.poster-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.poster {
+  display: grid;
+  width: auto;
+  margin: 0 auto;
+}
+
+.poster-default {
+  background: var(--art-brown);
+  border: 20px solid var(--art-brown);
+
+  grid-gap: 5px;
+  grid-template-columns: repeat(4, var(--art-unit-sz));
+  grid-template-rows: repeat(5, var(--art-unit-sz));
+}
+
+
+.poster-brazil {
+  background: rgb(64, 212, 76);
+  border: 20px solid rgb(64, 212, 76);
+
+  grid-gap: 0px;
+  grid-template-columns: repeat(8, var(--art-unit-sz));
+  grid-template-rows: repeat(5, var(--art-unit-sz));
+}
+
+.poster-uruguay {
+  background: #91b9f5;
+  border: 20px solid #91b9f5;
+
+  grid-gap: 10px;
+}
+
+.poster-france {
+  background: #f8ffcc;
+  border: 20px solid #f8ffcc;
+  grid-gap: 0px;
+}
+
+.poster-round {
+  background: white;
+  border: 20px solid white;
+  grid-template-columns: repeat(12, var(--art-unit-sz));
+  grid-template-rows: repeat(7, var(--art-unit-sz));
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.round-top-right {
+  border-top-right-radius: 100%;
+}
+
+.round-top-left {
+  border-top-left-radius: 100%;
+}
+
+.round-bottom-right {
+  border-bottom-right-radius: 100%;
+}
+
+.round-bottom-left {
+  border-bottom-left-radius: 100%;
+}
+
+.teal {
+  background-color: var(--art-teal)
+}
+
+.turquoise {
+  background-color: var(--art-turquoise)
+}
+
+.pink {
+  background: var(--art-pink);
+}
+
+.yellow {
+  background: var(--art-yellow);
+}
+
+.purple {
+  background: var(--art-purple);
+}
+
+.purple-light {
+  background: var(--art-purple-light);
+}
+
+.orange {
+  background: var(--art-orange);
+}
+
+.white {
+  background: white;
+}
+
+.black {
+  background: #000;
+}
+
+.blue {
+  background: var(--art-blue);
+}
+
+.red {
+  background: var(--art-red);
+}
+
+.green {
+  background: var(--art-green);
+}
+
+.brown {
+  background: var(--art-brown);
+}
+
+.triangle {
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+.diamond {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.maple1 {
+  clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.maple2 {
+  clip-path: polygon(70% 0, 100% 50%, 30% 100%, 0 50%);
+}
+
+.maple3 {
+  clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.maple4 {
+  clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%);
+}
