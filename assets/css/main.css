@@ -88,8 +88,6 @@ header {
 }
 
 /*************************************/
-/*************************************/
-/************************************/
 .grid-container {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
@@ -107,7 +105,7 @@ header {
 }
 
 .white-frame {
-  line-height: 1.;
+  line-height: 1.8;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2),
     0 1px 1px 0 rgba(0, 0, 0, .14),
     0 2px 1px -1px rgba(0, 0, 0, .12);
@@ -161,7 +159,7 @@ footer {
   text-align: center;
 }
 
-/*****************************/
+/*************************************/
 @media (min-width: 0) {
   .grid-container-wrapper {
     grid-template-columns: 0 auto 0;
