@@ -1,0 +1,754 @@
+export function generateRandomPoster(specs = {
+    w: 4,
+    h: 6
+}) {
+
+    let {
+        w,
+        h
+    } = specs;
+
+    let i;
+    let j;
+    let choice;
+
+
+    const patterns = {
+        'simple': {
+            format: ['circle', 'square', ],
+            colors: ['blue', 'teal', 'turquoise', 'white']
+        },
+        'squares': {
+            format: ['square', ],
+            colors: ['green', 'teal', 'turquoise', 'white']
+        },
+        'round': {
+            format: ['round-top-right', 'round-top-left', 'round-bottom-right', 'round-bottom-left'],
+            colors: ['pink', 'orange', 'red', 'yellow', 'white']
+        },
+        'mixed': {
+            format: ['diamond', 'round-top-right', 'round-top-left'],
+            colors: ['black', 'white']
+
+        }
+    };
+    let rand = Math.random();
+
+    choice = rand > 0.85 ? 'simple' : (
+        Math.random() > 0.5 ? 'squares' : (
+            Math.random() > 0.25 ? 'round' : 'mixed'
+        )
+    );
+
+
+    let data = [];
+
+    for (i = 0; i < w; i++) {
+        for (j = 0; j < h; j++) {
+            let rand1 = Math.floor(Math.random() * patterns[choice].format.length);
+            let rand2 = Math.floor(Math.random() * patterns[choice].colors.length);
+            let obj = {};
+            obj['format'] = patterns[choice].format[rand1];
+            obj['color'] = patterns[choice].colors[rand2];
+            data.push(obj);
+        }
+    }
+
+    let parentList = choice == 'mixed' ? ['secondary'] : ['primary'];
+    return {
+        name: 'randomq',
+        parentClassList: parentList,
+        classList: ['poster-round'],
+        description: 'I know am not the only one',
+        columns: w,
+        rows: h,
+        data
+    }
+}
+
+
+
+
+/**************************/
+
+export const store = {
+    mainPoster: {
+        name: 'japan',
+        description: 'I know am not the only one',
+        columns: 12,
+        rows: 7,
+        classList: ['poster-round'],
+        data: [
+
+            {
+                format: 'round-top-left',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-top-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'purple'
+            }, {
+                format: 'round-top-left',
+                color: 'teal'
+            }, {
+                format: 'round-top-right',
+                color: 'pink'
+            }, {
+                format: 'round-bottom-right',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'purple'
+            }, {
+                format: 'round-bottom-left',
+                color: 'turquoise'
+            }, {
+                format: 'round-bottom-left',
+                color: 'purple'
+            }, {
+                format: 'round-top-right',
+                color: 'orange'
+            }, {
+                format: 'round-top-left',
+                color: 'purple'
+            }, {
+                format: 'round-top-right',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-left',
+                color: 'teal'
+            }, {
+                format: 'round-top-right',
+                color: 'pink'
+            }, {
+                format: 'round-bottom-right',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'orange'
+            }, {
+                format: 'round-bottom-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'orange'
+            }, {
+                format: 'round-top-right',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'purple'
+            }, {
+                format: 'round-top-left',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-bottom-right',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-right',
+                color: 'purple'
+            }, {
+                format: 'round-bottom-right',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-top-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'purple'
+            }, {
+                format: 'round-top-left',
+                color: 'teal'
+            }, {
+                format: 'round-top-right',
+                color: 'pink'
+            }, {
+                format: 'round-bottom-right',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'purple'
+            }, {
+                format: 'round-bottom-right',
+                color: 'teal'
+            }, {
+                format: 'round-top-right',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-top-left',
+                color: 'orange'
+            }, {
+                format: 'round-bottom-left',
+                color: 'purple'
+            }, {
+                format: 'round-top-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-left',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'orange'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-bottom-right',
+                color: 'pink'
+            }, {
+                format: 'round-bottom-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'orange'
+            }, {
+                format: 'round-top-right',
+                color: 'orange'
+            }, {
+                format: 'round-bottom-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-right',
+                color: 'orange'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'orange'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'orange'
+            }, {
+                format: 'round-top-left',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-bottom-left',
+                color: 'pink'
+            }, {
+                format: 'round-top-right',
+                color: 'teal'
+            }, {
+                format: 'round-top-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-bottom-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-bottom-right',
+                color: 'purple'
+            }, {
+                format: 'round-top-left',
+                color: 'teal'
+            }, {
+                format: 'round-top-right',
+                color: 'pink'
+            }, {
+                format: 'round-bottom-right',
+                color: 'turquoise'
+            }, {
+                format: 'round-top-left',
+                color: 'purple-light'
+            }, {
+                format: 'round-top-right',
+                color: 'purple'
+            },
+        ]
+    },
+
+    posters: [{
+        name: 'brazil',
+        description: 'I know am not the only one',
+        columns: 11,
+        rows: 5,
+        parentClassList: ['primary', ],
+        className: 'poster-brazil',
+        data: [{
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'green'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'green'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'triangle',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'green'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'green'
+        }, {
+            format: 'maple1',
+            color: 'green'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'green'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple2',
+            color: 'green'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'maple1',
+            color: 'yellow'
+        }, {
+            format: 'diagonal',
+            color: 'green'
+        }]
+    }, {
+        name: 'uruguay',
+        description: 'I know am not the only one',
+        columns: 5,
+        rows: 7,
+        parentClassList: ['primary', ],
+        className: 'poster-uruguay',
+        data: [{
+            format: 'round-top-left',
+            color: 'blue'
+        }, {
+            format: 'round-top-right',
+            color: 'blue2'
+        }, {
+            format: 'round-top-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue'
+        }, {
+            format: 'round-top-right',
+            color: 'yellow'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue2'
+        }, {
+            format: 'round-bottom-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-right',
+            color: 'blue2'
+        }, {
+            format: 'round-bottom-left',
+            color: 'yellow'
+        }, {
+            format: 'round-top-right',
+            color: 'blue2'
+        }, {
+            format: 'round-bottom-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-left',
+            color: 'yellow'
+        }, {
+            format: 'round-top-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue2'
+        }, {
+            format: 'round-top-right',
+            color: 'blue2'
+        }, {
+            format: 'round-top-left',
+            color: 'blue'
+        }, {
+            format: 'round-top-right',
+            color: 'blue2'
+        }, {
+            format: 'round-bottom-left',
+            color: 'yellow'
+        }, {
+            format: 'round-top-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue'
+        }, {
+            format: 'round-top-right',
+            color: 'yellow'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue2'
+        }, {
+            format: 'round-bottom-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-right',
+            color: 'blue2'
+        }, {
+            format: 'round-top-left',
+            color: 'blue'
+        }, {
+            format: 'round-top-right',
+            color: 'blue2'
+        }, {
+            format: 'round-bottom-left',
+            color: 'yellow'
+        }, {
+            format: 'round-top-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue'
+        }, {
+            format: 'round-top-right',
+            color: 'yellow'
+        }, {
+            format: 'round-bottom-left',
+            color: 'blue2'
+        }, {
+            format: 'round-bottom-right',
+            color: 'blue'
+        }, {
+            format: 'round-bottom-right',
+            color: 'blue2'
+        }, ]
+    }, {
+        name: 'france',
+        description: 'I know am not the only one',
+        columns: 7,
+        rows: 5,
+        parentClassList: ['primary'],
+        className: 'poster-france',
+        data: [{
+            format: 'diamond',
+            color: 'white'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'white'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'teal'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'teal'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'orange'
+        }, {
+            format: 'diamond',
+            color: 'teal'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: ''
+        }, {
+            format: 'diamond',
+            color: 'teal'
+        }, {
+            format: 'diamond',
+            color: 'orange'
+        }, {
+            format: 'diamond',
+            color: 'teal'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'teal'
+        }, {
+            format: 'diamond',
+            color: 'orange'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'whie'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'white'
+        }, {
+            format: 'diamond',
+            color: 'white'
+        }, {
+            format: 'diamond',
+            color: 'orange'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'red'
+        }, {
+            format: 'diamond',
+            color: 'blue'
+        }, {
+            format: 'diamond',
+            color: 'orange'
+        }]
+    }]
+};

@@ -1,12 +1,15 @@
 :root {
+  --art-unit-sz: 50px;
+
+
   --black: #000;
   --white: #fff;
   --yellow: #ffde03;
   --blue: #0336ff;
   --quasi-black: #333;
-  --art-unit-sz: 50px;
   --art-orange: #f2422a;
   --art-blue: #2196f3;
+  --art-blue2: #91b9f5;
   --art-brown: #442c2e;
   --art-green: #09aa3f;
   --art-yellow: #e6d60d;
@@ -88,10 +91,13 @@ header {
 }
 
 /*************************************/
+/*************************************/
+/************************************/
 .grid-container {
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  grid-template-columns: 0px 1fr 0px;
   grid-template-rows: 1fr;
+  justify-content: center;
 }
 
 .debug {
@@ -159,7 +165,13 @@ footer {
   text-align: center;
 }
 
-/*************************************/
+/*****************************/
+
+.grid-container-wrapper {
+
+  transition: all 2000ms ease-in;
+}
+
 @media (min-width: 0) {
   .grid-container-wrapper {
     grid-template-columns: 0 auto 0;
@@ -222,7 +234,9 @@ footer {
 .poster {
   display: grid;
   width: auto;
-  margin: 0 auto;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  justify-content: center;
 }
 
 .poster-default {
@@ -236,8 +250,8 @@ footer {
 
 
 .poster-brazil {
-  background: rgb(64, 212, 76);
-  border: 20px solid rgb(64, 212, 76);
+  background: var(--art-green);
+  border: 20px solid var(--art-green);
 
   grid-gap: 0px;
   grid-template-columns: repeat(8, var(--art-unit-sz));
@@ -245,10 +259,10 @@ footer {
 }
 
 .poster-uruguay {
-  background: #91b9f5;
-  border: 20px solid #91b9f5;
+  background: white;
+  border: 20px solid white;
 
-  grid-gap: 10px;
+  grid-gap: 0;
 }
 
 .poster-france {
@@ -322,6 +336,10 @@ footer {
 
 .blue {
   background: var(--art-blue);
+}
+
+.blue2 {
+  background: var(--art-blue2);
 }
 
 .red {
